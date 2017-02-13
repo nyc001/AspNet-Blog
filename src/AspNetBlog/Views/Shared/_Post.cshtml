@@ -1,0 +1,59 @@
+﻿@using AspNetBlog.Models
+@model AspNetBlog.Models.Post
+@inject FormattingService Format
+
+
+
+<div class='blog-post' data-post-id="@Model.Id">
+    <h2 class='title'>
+        <a href="#">@Model.Title</a>
+    </h2>
+    <p class='metadata'>
+        <span>@Format.AsReadableDate(Model.PostDate)</span>
+        by <a class="author" href='#'>@Model.Author</a>
+    </p>
+    <section class="body">
+        @Model.Body
+    </section>
+    <hr />
+    <footer>
+        <a href="#" class="show-comments">Show Comments</a>
+        <div class="comments-container ">
+            <h3>Comments</h3>
+            <div class="comments">
+            </div>
+            <hr />
+            <div>
+                <a href="#" class="add-comment">Add a comment</a>
+                <div class="new-comment ">
+                    <form role="form">
+                        <div class="form-group">
+                            <textarea name="Body" class="new-comment form-control" placeholder="Enter comment here..."></textarea>
+                            <button type="submit" class="btn btn-default">Create Comment</button>
+                        </div>
+                    </form>
+                                </div>
+@*                <div class="new-comment">*@
+@*                    <forms>*@
+@*                        <div class="form-group">*@
+@*                            <label name="Body"></label>*@
+@*                            <input name="Body"/>*@
+@*                        </div>*@
+@*                        <div class="form-group">*@
+@*                            <input name="PostId" value=@Model.Id />*@
+@*                        </div>*@
+@*                        <button class="btn btn-default" id="submit">Submit comment</button>*@
+@*                    </forms>*@
+@*                </div>*@
+            </div>
+        </div>
+    </footer>
+</div><!-- /.blog-post -->
+
+<nav class="hide">
+    <ul class="pager">
+        <li><a href="#">Previous</a></li>
+        <li><a href="#">Next</a></li>
+    </ul>
+</nav>
+

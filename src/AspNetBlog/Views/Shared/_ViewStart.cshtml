@@ -1,0 +1,21 @@
+﻿@using Microsoft.AspNet.Mvc
+@model AspNetBlog.Models.Post[]
+
+
+@foreach (var post in Model)
+{
+    @Html.Partial("_Post", post)
+}
+
+<nav>
+    <ul class="pager">
+        @if (ViewBag.HasPreviousPage)
+        {
+            <li><a href="@Url.Action("Index",new {page=ViewBag.PreviousPage})">Previous</a></li>
+        }
+        @if (ViewBag.HasNextPage)
+        {
+            <li><a href="@Url.Action("Index",new {page=ViewBag.NextPage})">Next</a></li>
+        }
+    </ul>
+</nav>
